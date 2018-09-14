@@ -1,12 +1,26 @@
 {
     "manifest_version": 2,
-   
-    "name": "Modify CSS and HTML",
+    "name": "Libre :: free your site",
     "version": "0.1.0",
-    "description": "Lateral blog post demo extension",
-   
+    "description": "Modify CSS and HTML",
+
+    "icons": {
+        "24": "icon.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+
     "content_scripts": [{
-      "css": ["style.css"],
-      "matches": [""]
-    }]
-  }
+        "css": ["style.css"],
+        "matches": ["https://www.benedu.co.kr/Index_m.aspx"]
+    }],
+
+    "permissions": [
+        "activeTab",
+        "http://*/",
+        "storage"
+      ]
+}
