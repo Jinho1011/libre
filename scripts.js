@@ -1,11 +1,11 @@
-// All DOM manipulation must exist inside this "content script" in order to execute in the proper context of the page
+const getCssCode = async () => {
+    await chrome.storage.sync.get("cssfile", function (items) {
+        var ss = document.createElement("link");
+        ss.type = "text/css";
+        ss.rel = "stylesheet";
+        ss.href = 'data:text/css;charset=UTF-8,' + encodeURIComponent(items.cssfile)
+        document.getElementsByTagName("head")[0].appendChild(ss);
+    });
+};
 
-// inject the css file into the head element
-function appendStyleNode(id, href) {
-    var cssNode = document.createElement('link');
-    cssNode.type = 'text/css';
-    cssNode.rel = 'stylesheet';
-    cssNode.id = id;
-    cssNode.href = href;
-    document.getElementsByTagName('head')[0].appendChild(cssNode);
-}
+getCssCode()
