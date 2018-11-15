@@ -17,7 +17,7 @@
         }
     ],
     "background": {
-        "scripts": ["scripts.js"]
+        "scripts": ["background.js"]
     },
     "permissions": [
         "<all_urls>",
